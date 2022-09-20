@@ -1,0 +1,10 @@
+<h1>My Books</h1>
+<ul>
+  <% for book in @books %>
+    <li>
+      <%= link_to book.title, book %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "New Book", new_book_path %>
