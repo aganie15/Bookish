@@ -1,13 +1,20 @@
-<%= form_with model: [ @book, @copy ] do |form| %>
-  <p>
-    <%= form.label :borrower %><br>
-    <%= form.text_field :borrower %>
-  </p>
-  <p>
-    <%= form.label :due_date %><br>
-    <%= form.text_field :due_date %>
-  </p>
-  <p>
-    <%= form.submit %>
-  </p>
+<%= form_with model: [@book, @copy] do |form| %>
+  <div class="mb-3">
+    <%= form.label :borrower, class: "label" %>
+    <%= form.text_field :borrower, class: "input" %>
+    <% @copy.errors.full_messages_for(:borrower).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :due_date, class: "label" %>
+    <%= form.text_field :due_date, class: "input" %>
+    <% @copy.errors.full_messages_for(:due_date).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+  <div>
+    <%= form.submit class: "button is-link" %>
+  </div>
 <% end %>

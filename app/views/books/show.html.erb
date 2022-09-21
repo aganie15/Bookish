@@ -1,20 +1,22 @@
-<h1><%= @book.title %></h1>
-<p><%= @book.author %></p>
-<p><%= @book.isbn %></p>
+<div class="m-5">
 
-<ul>
-  <li><%= link_to "Edit", edit_book_path(@book) %></li>
-  <li><%= link_to "Destroy", book_path(@book), data: {
+  <h1 class="title is-3"><%= @book.title %></h1>
+  <h2 class="subtitle is-5 mb-1">Written by <strong><%= @book.author %></strong></h2>
+  <h2 class="subtitle is-6"><strong>ISBN - </strong> <%= @book.isbn %></h2>
+
+  <%= link_to "Edit", edit_book_path(@book), class: "button is-link" %>
+  <%= link_to "Delete", book_path(@book), class: "button is-link", data: {
     turbo_method: :delete,
     turbo_confirm: "Are you sure?"
-  } %></li>
-</ul>
+  } %>
 
-<h2>Copies</h2>
-<% for copy in @book.copies %>
-  <%= render copy %>
-<% end %>
+  <div class="mb-2 mt-6">
+    <h2 class="subtitle is-4 mb-1">Copies</h2>
+    <% for copy in @book.copies %>
+      <%= render copy %>
+    <% end %>
+    <%= link_to 'Add new copy', new_book_copy_path(@book), class: "button is-primary mt-3" %> <br>
+  </div>
 
-<h2>Add a new copy:</h2>
-<%= render "copies/form", copy: @copy %>
-<%= link_to 'Home', books_path %>
+  <%= link_to 'Go Back', books_path, class: "button is-danger mt-6" %>
+</div>

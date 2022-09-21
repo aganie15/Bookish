@@ -1,17 +1,16 @@
-<p>
+<div class="mb-3">
   <strong>Borrower:</strong>
   <%= copy.borrower %>
-</p>
-
-<p>
+  <br>
   <strong>Due date:</strong>
   <%= copy.due_date %>
-</p>
 
-<p>
-  <%= link_to "Edit Copy", edit_polymorphic_path([copy.book, copy]) %>
-  <%= link_to "Destroy Copy", [copy.book, copy], data: {
-    turbo_method: :delete,
-    turbo_confirm: "Are you sure?"
-  } %>
-</p>
+
+  <p>
+    <%= link_to "Edit Copy", edit_polymorphic_path([copy.book, copy]), class: "button is-primary is-small" %>
+    <%= link_to "Delete Copy", [copy.book, copy], class: "button is-primary is-small", data: {
+      turbo_method: :delete,
+      turbo_confirm: "Are you sure?"
+    } %>
+  </p>
+</div>

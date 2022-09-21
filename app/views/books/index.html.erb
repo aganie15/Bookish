@@ -1,10 +1,13 @@
-<h1>My Books</h1>
-<ul>
-  <% for book in @books %>
-    <li>
-      <%= link_to book.title, book %>
-    </li>
-  <% end %>
-</ul>
+<div class="m-5">
+  <h1 class="title">My Books</h1>
+  <div class="m-3">
+    <% sorted_books = @books.sort_by &:title %>
+    <% for book in sorted_books %>
+      <%= link_to book.title, book %><br>
+    <% end %>
+  </div>
 
-<%= link_to "New Book", new_book_path %>
+  <div class="mt-5">
+    <%= link_to "New Book", new_book_path, class: "button is-link" %>
+  </div>
+</div>
