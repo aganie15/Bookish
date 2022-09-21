@@ -14,15 +14,18 @@ class CopiesController < ApplicationController
 
   def edit
     @book = Book.find(params[:book_id])
+    puts "this is the params: " + params.to_s # id here id the BOOK ID
     @copy = @book.copies.find(params[:id])
+    puts @copy.borrower
   end
 
   def update
-    @book = Book.find(params[:id])
+    puts "Here"
+    @book = Book.find(params[:book_id])
     @copy = @book.copies.find(params[:id])
 
     if @copy.update(copy_params)
-      redirect_to @copy
+      redirect_to @book
     else
       render :edit, status: :unprocessable_entity
     end

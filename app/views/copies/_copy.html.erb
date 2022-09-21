@@ -9,7 +9,8 @@
 </p>
 
 <p>
-  <%= link_to "Edit Copy", edit_book_copy_path(@copy) %>
+  <% puts @copy %>
+  <%= link_to "Edit Copy", edit_book_copy_path([copy.book.id, copy.id]) %>
   <%= link_to "Destroy Copy", [copy.book, copy], data: {
     turbo_method: :delete,
     turbo_confirm: "Are you sure?"

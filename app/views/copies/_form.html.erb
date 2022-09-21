@@ -1,4 +1,4 @@
-<%= form_with model: [ @book, @book.copies.build ] do |form| %>
+<%= form_with(model: [ @book, @book.copies.build ], local: true) do |form| %>
   <p>
     <%= form.label :borrower %><br>
     <%= form.text_field :borrower %>
