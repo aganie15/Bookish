@@ -5,6 +5,7 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
+    @copy = Copy.new
   end
 
   def new

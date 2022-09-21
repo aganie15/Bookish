@@ -1,5 +1,4 @@
 <h1><%= @book.title %></h1>
-
 <p><%= @book.author %></p>
 <p><%= @book.isbn %></p>
 
@@ -12,7 +11,10 @@
 </ul>
 
 <h2>Copies</h2>
-<%= render @book.copies %>
+<% for copy in @book.copies %>
+  <%= render copy %>
+<% end %>
 
 <h2>Add a new copy:</h2>
-<%= render 'copies/form' %>
+<%= render "copies/form", copy: @copy %>
+<%= link_to 'Home', books_path %>
